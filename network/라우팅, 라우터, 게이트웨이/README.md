@@ -66,3 +66,4 @@ state는 listen 이 있었고 established(연결 완료) time_wait 등이 있었
 ### 참고자료
 https://aws.amazon.com/ko/what-is/routing/?trk=faq_card
 https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/VPC_Route_Tables.html
+https://it.donga.com/21138/
