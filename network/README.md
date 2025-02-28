@@ -1,6 +1,6 @@
 # 네트워크
-- 네트워크 기초
-- 라우팅, 라우터,게이트웨이
+- [네트워크 기초](https://github.com/hoeun0723/TIL/blob/main/network/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%20%EA%B8%B0%EC%B4%88/README.md)
+- [라우팅, 라우터,게이트웨이](https://github.com/hoeun0723/TIL/blob/main/network/%EB%9D%BC%EC%9A%B0%ED%8C%85%2C%20%EB%9D%BC%EC%9A%B0%ED%84%B0%2C%20%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4/README.md)
 - IP주소,MAC주소,ARP,RARP
 - IP주소체계
 - TCP.IP 개념
