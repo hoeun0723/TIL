@@ -5,7 +5,7 @@
 - [IP주소체계](https://github.com/hoeun0723/TIL/blob/main/network/IP%EC%A3%BC%EC%86%8C%EC%B2%B4%EA%B3%84/README.md)
 - [TCP.IP 개념](https://github.com/hoeun0723/TIL/tree/main/network/TCP.IP%20%EA%B0%9C%EB%85%90)
 - [TCP.IP 연결 및 해제 과정](https://github.com/hoeun0723/TIL/tree/main/network/TCP.IP%EC%97%B0%EA%B2%B0%20%EB%B0%8F%20%ED%95%B4%EC%A0%9C%20%EA%B3%BC%EC%A0%95)
-- 웹브라우저통신과정
+- [웹브라우저통신과정](https://github.com/hoeun0723/TIL/tree/main/network/%EC%9B%B9%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%ED%86%B5%EC%8B%A0%EA%B3%BC%EC%A0%95)
 - http
 - uri, url, urn
 - dns
