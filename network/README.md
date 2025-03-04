@@ -3,8 +3,8 @@
 - [라우팅, 라우터,게이트웨이](https://github.com/hoeun0723/TIL/blob/main/network/%EB%9D%BC%EC%9A%B0%ED%8C%85%2C%20%EB%9D%BC%EC%9A%B0%ED%84%B0%2C%20%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4/README.md)
 - [IP주소,MAC주소,ARP,RARP](https://github.com/hoeun0723/TIL/tree/main/network/IP%EC%A3%BC%EC%86%8C%2CMAC%EC%A3%BC%EC%86%8C%2CARP%2CRARP)
 - [IP주소체계](https://github.com/hoeun0723/TIL/blob/main/network/IP%EC%A3%BC%EC%86%8C%EC%B2%B4%EA%B3%84/README.md)
-- TCP.IP 개념
-- TCP.IP 연결 및 해제 과정
+- [TCP.IP 개념](https://github.com/hoeun0723/TIL/tree/main/network/TCP.IP%20%EA%B0%9C%EB%85%90)
+- [TCP.IP 연결 및 해제 과정](https://github.com/hoeun0723/TIL/tree/main/network/TCP.IP%EC%97%B0%EA%B2%B0%20%EB%B0%8F%20%ED%95%B4%EC%A0%9C%20%EA%B3%BC%EC%A0%95)
 - 웹브라우저통신과정
 - http
 - uri, url, urn
