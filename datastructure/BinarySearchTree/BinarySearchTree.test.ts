@@ -1,4 +1,4 @@
-import BinarySearchTree, {INode} from 'datastructure/BinarySearchTree';
+import BinarySearchTree, {INode} from '/2025_study_for_me/TIL/datastructure/BinarySearchTree';
 
 /**
  * 테스트 코드에서 사용할 이진탐색트리를 중위순외한 결과값을 반환하는 함수
