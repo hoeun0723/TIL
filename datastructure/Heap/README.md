@@ -118,7 +118,7 @@ insert(value: number) {
 시간복잡도 : O(log2N) - 최악의 경우 가장 아래 노드까지 가야함
 
 ```
-pull() {
+poll() {
   //heap 이 비어있으면 undefined 반환
   if(this.arr.length === 0) return undefined;
   //heap에 1의 원소만 있으면 해당 원소만 반환
@@ -153,8 +153,8 @@ console.log('res',res);
 ## insert 예시
 ![insert](insert.jpg)
 
-## pull 예시
-![pull](pull.jpg)
+## poll 예시
+![poll](poll.jpg)
 
 # 참고자료
 https://yoongrammer.tistory.com/80
