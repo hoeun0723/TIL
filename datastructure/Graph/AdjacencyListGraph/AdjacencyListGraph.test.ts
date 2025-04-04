@@ -81,6 +81,9 @@ describe('AdgacencyListGraph',()=>{
         const vertex2 = '철수';
         beforeEach(()=>{
             graph = new AdjacencyListGraph();
+            graph.addVertex(vertex1);
+            graph.addVertex(vertex2);
+            graph.removeEdge(vertex1,vertex2);
             spyOnRemoveEdge = jest.spyOn(graph, 'removeEdge');
             graph.removeEdge(vertex1,vertex2);
             nodes = graph.showNode();
@@ -114,9 +117,10 @@ describe('AdgacencyListGraph',()=>{
         const vertex1 = '짱구';
         beforeEach(()=>{
             graph = new AdjacencyListGraph();
+            graph.addVertex(vertex1);
             spyOnRemoveVertex = jest.spyOn(graph,'removeVertex');
-            nodes = graph.showNode();
             graph.removeVertex(vertex1);
+            nodes = graph.showNode();
         });
         afterEach(()=>{
             spyOnRemoveVertex.mockClear();

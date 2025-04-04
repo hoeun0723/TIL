@@ -107,49 +107,44 @@ export default class BinarySearchTree<T> {
         };
         return recurFindParent(this.root);
     }
-    delete(value: T) {
+    delete(value: T): this {
         if (this.isRootNull()) return this;
-
-        if(this.root!.value===value) {
+    
+        const target = this.find(value);
+        if (target === null) return this;
+    
+        const parent = this.findParent(value);
+    
+        // ✅ Case 1: 삭제할 노드가 루트이고, 자식이 없음
+        if (this.root!.value === value && !this.root!.left && !this.root!.right) {
             this.root = null;
             return this;
         }
-        
-        const parent = this.findParent(value);
-        if(parent === null) return this;
-
-        let target = this.find(value);
-        if(target === null)return this;
-        // 자식이 없는 노드를 지울 때 => 그냥 지워도 구조를 유지
-        if(target!.left === null && target!.right === null) {
-            target = null;
-        } else if (target!.left === null) {
-            //자식이 1개인 노드를 지울 때 => 자신노드의 위치를 지우는 노드위치로 이동해도 구조 유지
-            target = target.right;
-        } else if (target!.right === null) {
-            // 자식이 2개인 노드를 지울 때 지우고 싶은 노드보다 큰 노드 중 가장 작은 값으로 대체
-            const newTarget = this.findMinFromCurrent(target.right!.value);
-            this.delete(newTarget!.value);
-            target.value = newTarget!.value;
-        }
-        if(parent.left?.value === value) {
-            parent.left = target;
-        } else if (parent.right?.value === value) {
-            parent.right = target;
-        }
-
-        const recurReplace = (currentNode: INode<T> | null): undefined => {
-            if (currentNode === null) return;
-            if(currentNode.value> parent.value) return recurReplace(currentNode.left);
-            else if (currentNode.value< parent.value) return recurReplace(currentNode.right);
-            else {
-                // currentNode.value === value
-                currentNode = parent;
-                return;
+    
+        const replaceChild = (parent: INode<T> | null, target: INode<T>, newChild: INode<T> | null) => {
+            if (parent === null) {
+                this.root = newChild;
+            } else if (parent.left === target) {
+                parent.left = newChild;
+            } else if (parent.right === target) {
+                parent.right = newChild;
             }
         };
-        recurReplace(this.root);
-
+    
+        // ✅ Case 2: 자식이 하나 또는 없음
+        if (target.left === null || target.right === null) {
+            const child = target.left ?? target.right;
+            replaceChild(parent, target, child);
+            return this; // ✅ 여기 빠져있었음
+        }
+    
+        // ✅ Case 3: 자식이 둘 다 있는 경우
+        const successor = this.findMinFromCurrent(target.right!.value);
+        if (successor) {
+            this.delete(successor.value); // 중복 제거 먼저
+            target.value = successor.value;
+        }
+    
         return this;
     }
     inOrderTraversal() {

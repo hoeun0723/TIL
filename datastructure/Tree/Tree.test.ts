@@ -106,7 +106,7 @@ describe('순회',()=>{
     });
     it('DFS',()=>{
         expect(tree.traverseDFS()).toBe(
-            'height: 0, value: 1\nheight: 1, value: 2\nheight: 2, value: 2-1\nheight:2, value: 2-2\nheight: 2, value: 2-3\n height: 2, value: 3\nheight: 3, value: 3-1\nheight: 3, value: 3-2\nheight: 3, value: 3-3\nheight: 1, value: 4\nheight: 2, value: 5\nheight: 3, value: 6\nheight: 4, value: 7\nheight: 3, value: 8'
+            'height: 0, value: 1\nheight: 1, value: 2\nheight: 2, value: 2-1\nheight: 2, value: 2-2\nheight: 2, value: 2-3\nheight: 2, value: 3\nheight: 3, value: 3-1\nheight: 3, value: 3-2\nheight: 3, value: 3-3\nheight: 1, value: 4\nheight: 2, value: 5\nheight: 3, value: 6\nheight: 4, value: 7\nheight: 3, value: 8'
         );
     });
     it('BFS',()=>{

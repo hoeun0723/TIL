@@ -123,7 +123,11 @@ describe('LinkedList Tester',()=> {
             });
             it('연결리스트의 마지막 노드가 처음 unshift 된 노드와 같은가',()=>{
                 const mockSingleLinkedList = generateInstance();
+                mockSingleLinkedList.unshift(mockNodeHead);
+
+                mockSingleLinkedList.unshift(mockNodeBody);
                 mockSingleLinkedList.unshift(mockNodeLast);
+                
                 const head = mockSingleLinkedList.getHead();
                 const lastNode = head && findLastNode(head);
                 expect(lastNode?.body).toStrictEqual(mockNodeHead);

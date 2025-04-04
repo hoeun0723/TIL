@@ -47,7 +47,7 @@ describe('Binary Search Tree', () => {
       let biggerThanRoot = 10;
       beforeEach(() => {
         bst = new BinarySearchTree();
-        spyOnInsertIntoCurrentNode = jest.spyOn(Object.getPrototypeOf(bst), 'insertIntoCurretNode');
+        spyOnInsertIntoCurrentNode = jest.spyOn(Object.getPrototypeOf(bst), 'insertIntoCurrentNode');
         bst.insert(rootValue);
       });
       afterEach(() => {
@@ -56,23 +56,23 @@ describe('Binary Search Tree', () => {
       it('If root === null, set new Value to root of BST', () => {
         expect(bst.getRoot()).toStrictEqual(new INode(rootValue));
       });
-      it('If root !=== null, call <insertIntoCurretNode> method', () => {
+      it('If root !=== null, call <insertIntoCurrentNode> method', () => {
         bst.insert(smallerThanRoot);
         expect(spyOnInsertIntoCurrentNode).toBeCalled();
       });
-      it('insertIntoCurretNode: new value small than the root value shoud be located to the left of the root', () => {
+      it('insertIntoCurrentNode: new value small than the root value shoud be located to the left of the root', () => {
         bst.insert(smallerThanRoot);
         const leftNode = bst.getRoot()?.left;
         expect(leftNode).not.toBeNull();
         expect(leftNode?.value).toBe(smallerThanRoot);
       });
-      it('insertIntoCurretNode: new value bigger than the root value shoud be located to the right of the root', () => {
+      it('insertIntoCurrentNode: new value bigger than the root value shoud be located to the right of the root', () => {
         bst.insert(biggerThanRoot);
         const leftNode = bst.getRoot()?.right;
         expect(leftNode).not.toBeNull();
         expect(leftNode?.value).toBe(biggerThanRoot);
       });
-      it('insertIntoCurretNode: check all value should be located in BST corretly', () => {
+      it('insertIntoCurrentNode: check all value should be located in BST corretly', () => {
         const inputValues = [...mockNumberArr];
         bst = insertMockNumberToBst(bst, inputValues);
         const answer = traversalInorderTest(bst);
@@ -201,8 +201,10 @@ describe('Binary Search Tree', () => {
         expect(newBst.delete(noExistNumber)).toStrictEqual(newBst);
       });
       it('If value === root, bst should be null', () => {
-        const newBst = new BinarySearchTree();
-        expect(bst.delete(rootValue)).toStrictEqual(newBst);
+        const bst = new BinarySearchTree();
+        bst.insert(rootValue);
+        const deleted = bst.delete(rootValue);
+        expect(deleted.getRoot()).toBeNull;
       });
       it("If current doesn't existed in bst, bst should be Same with before", () => {
         expect(bst.delete(noExistNumber)).toStrictEqual(bst);

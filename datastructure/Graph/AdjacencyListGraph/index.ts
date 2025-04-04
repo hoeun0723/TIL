@@ -4,7 +4,7 @@ export default class AdjacencyListGrap {
         this.nodes = new Map();
     }
     showNode() {
-        return this.nodes;
+        return new Map(this.nodes);
     }
     display() {
         this.nodes.forEach((value,key)=>{

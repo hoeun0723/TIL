@@ -93,6 +93,7 @@ describe('AdjacencyMatrixGraph',()=>{
         let prevGraphSize: number;
         beforeEach(()=>{
             graph = new AdjacencyMatrixGraph();
+            graph.create(len);
             graph.addVertex(vertex1Value);
             graph.addVertex(vertex2Value);
             graph.addVertex(vertex3Value);

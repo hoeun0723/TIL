@@ -139,26 +139,32 @@ export class SingleLinkedList implements ISingleLinkedList {
         return success;
     }
     delete (index: number) {
-        let current = this.head;
-        if(this.size<=0) return fail;
-        if(current === null) return fail;
-        if(index === 0) {
-            this.head = current.next;
-            return success;
-        }
-        let beforeCurrent = current;
-        let count = 0;
-        while(current !==null && current.next !==null){
-            if(count === index){
-                break;
-            }
-            beforeCurrent = current;
-            current = current.next;
-            count++;
-        }
-        beforeCurrent.next = current.next;
-        this.subtractSize();
-        return success;
+      if (this.size <= 0) return fail;
+      if (index < 0 || index >= this.size) return fail; // 인덱스 유효성 검사
+  
+      if (index === 0) {
+          this.head = this.head!.next;
+          this.subtractSize();
+          return success;
+      }
+  
+      let prev = this.head;
+      let count = 0;
+  
+      while (prev !== null && count < index - 1) {
+          prev = prev.next;
+          count++;
+      }
+  
+      if (prev === null || prev.next === null) {
+          return fail; //  prev 또는 prev.next가 없으면 삭제 못 함
+      }
+  
+      // 연결 재설정
+      prev.next = prev.next.next;
+  
+      this.subtractSize();
+      return success;
     }
     printNodes () {
         let current = this.head;

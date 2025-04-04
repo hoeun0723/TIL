@@ -45,7 +45,7 @@ export default class TreeNode<T> {
      */
     addChildren(...values: Array<T>) {
         this.children.push(
-            ...values.map((value)=> new TreeNode(this.value,this.height+1))
+            ...values.map((value)=> new TreeNode(value,this.height+1))
         );
         return this;
     }
@@ -63,15 +63,15 @@ export default class TreeNode<T> {
      * @param value 찾고자 하는 node의 value
      * @returns value가 입력한 value인 노드 자체를 반환
      */
-    find(value: T){
-        let result;
+    find(value: T): TreeNode<T> | null{
+        let result: TreeNode<T> | null = null;
         const recur = (treeNode: TreeNode<T>)=> {
             if(treeNode.getValue()===value) {
                 result = treeNode;
                 return result;
             }
             for (const child of treeNode.getChildren()) {
-                recur(child);
+                if(result === null) recur(child);
             }
         };
         recur(this);
@@ -121,7 +121,7 @@ export default class TreeNode<T> {
          while(queue.length>0){
             const current = queue.shift();
             if(!current) continue;
-            result.push(`height: ${current.height},value: ${current.value}`);
+            result.push(`height: ${current.height}, value: ${current.value}`);
             current.children.forEach((childNode)=>{
                 const {value, height, children} = childNode;
                 if(!visited.get(value)){
@@ -155,10 +155,13 @@ export const makeExampleTree = () => {
     second.addChildren('2-1','2-2','2-3');
     const third = new TreeNode('3');
     third.addChildren('3-1','3-2','3-3');
+    second.insertSubTree(third);
+
     fourth.insertSubTree(fifth);
     sixth.insertSubTree(seventh);
     fifth.insertSubTree(sixth,eighth);
-    second.insertSubTree(third);
+
+    tree.insertSubTree(second,fourth);
     return tree;
 };
 

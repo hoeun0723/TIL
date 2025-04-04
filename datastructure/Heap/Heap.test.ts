@@ -55,7 +55,7 @@ describe('Heap datastructure test', () => {
             prevIndex1 = prevArr[1];
             prevIndex2 = prevArr[2];
             // @ts-expect-error -> for private method test 😅
-            minHeap.showEntireMinHeap(idx1,idx2);
+            minHeap.swap(idx1,idx2);
             nextArr = minHeap.showEntireMinHeap();
         });
         afterEach(()=>{

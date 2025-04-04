@@ -29,6 +29,11 @@ export default class AdjacencyMatrixGraph {
         return this.vertexMap.findIndex((e)=>e===vertex);
     }
     addVertex(vertex: string){
+        if(!this.vertexMap) {
+            console.error('그래프가 초기화되지 않았습니다. 먼저 create(n)을 호출하세요.');
+            return this;
+        }
+
         if(this.size> this.vertexMap.length-1){
             console.log('선언한 graph의 크기를 초과했습니다.');
             return this;
